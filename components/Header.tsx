@@ -35,6 +35,9 @@ const Header = () => {
           <Link href="/search">
             <BiSearch className="text-xl sm:text-2xl" />
           </Link>
+          <Link href="/marketplace/upload">
+            <BiCart className="text-xl sm:text-2xl" />
+          </Link>
         </nav>
       </div>
       <div className="border max-w-5xl mx-auto my-2 border-gray-600" />

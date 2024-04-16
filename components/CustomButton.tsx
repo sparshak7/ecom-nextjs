@@ -1,18 +1,21 @@
 import Link from "next/link";
-import { BiNavigation } from "react-icons/bi";
+import { ReactNode } from "react";
 
-const CustomButton = () => {
+type CustomButtonProps = {
+  text: string;
+  icon?: ReactNode
+}
+
+const CustomButton = ({text, icon}: CustomButtonProps) => {
   return (
     <div>
       <DrawOutlineButton>
-        <Link href="/browse">
+        {/* <Link href="/browse"> */}
           <div className="flex gap-2 items-center">
-            Get Started{" "}
-            <span>
-              <BiNavigation />
-            </span>
+            {text}
+            {icon && <span>{icon}</span>}
           </div>
-        </Link>
+        {/* </Link> */}
       </DrawOutlineButton>
     </div>
   );
