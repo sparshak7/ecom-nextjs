@@ -21,7 +21,7 @@ export default function RootLayout({
         className={`${dm_sans.className} h-full bg-back selection:bg-red-400 text-white`}
       >
         <Header />
-        <main className="mx-auto max-w-6xl px-6 py-2 min-h-screen">
+        <main className="mx-auto max-w-5xl px-6 py-2 min-h-screen">
           {children}
         </main>
         <Footer />

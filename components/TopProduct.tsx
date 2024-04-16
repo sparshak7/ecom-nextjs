@@ -9,13 +9,17 @@ const TopProducts = async () => {
     .select()
     .eq("featured", true);
 
-  console.log({ topProducts });
-
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10">
-      {topProducts?.map((product, id) => (
-        <Card key={id} product={product} />
-      ))}
+    <div>
+      <h1 className="text-3xl tracking-wide">Featured Products</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 my-10">
+        {topProducts ? (
+          topProducts?.map((product, id) => <Card key={id} product={product} />)
+        ) : (
+          <p className="pt-6 text-md">No products to retrieve currently.</p>
+        )}
+      </div>
+      <div className="border max-w-5xl mx-auto mb-6 mt-1 border-gray-600" />
     </div>
   );
 };
