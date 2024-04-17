@@ -4,7 +4,7 @@ import TopProducts from "@/components/TopProduct";
 import { createClient } from "@/supabase/client";
 
 // export const revalidate = 0; //no-store
-export const revalidate = 1800;
+export const revalidate = 0;
 
 export default async function Home() {
   const supabase = createClient();

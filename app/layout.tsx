@@ -4,11 +4,20 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
+import { getCanonicalUrl } from "@/utils";
 const dm_sans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Project 1 - Home Page",
-  description: "This is the home page.",
+  metadataBase: new URL(getCanonicalUrl()),
+  title: "Zephyr",
+  description:
+    "Welcome to Zephyr, where elegance meets modernity in a seamless fusion of luxury and comfort. Discover our carefully curated selection of premium home decor, fashion-forward apparel, and exquisite accessories, meticulously crafted to elevate every aspect of your lifestyle. Embrace timeless sophistication with our thoughtfully designed products, each embodying a perfect blend of refined taste and enduring quality. At Zephyr, we invite you to indulge in the art of refined living, where every purchase is a statement of style and sophistication. Experience the epitome of luxury with Zephyr - your destination for timeless elegance and modern comforts.",
+    openGraph: {
+      images: [`/assets/og-img.png`]
+    },
+    alternates: {
+      canonical: "/"
+    }
 };
 
 export default function RootLayout({

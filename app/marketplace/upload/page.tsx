@@ -67,11 +67,14 @@ const Upload = () => {
       {/* {state?.type === "error" && <p>{state.message}</p>} */}
       <form action={formAction}>
         <div className="min-h-screen max-w-5xl flex justify-center items-center mx-auto flex-col gap-4 px-14">
-          <h1 className="text-3xl tracking-wide mb-4">
-            Add Product to Marketplace
+          <h1 className="text-xl md:text-3xl tracking-wide my-4">
+            Add Product
           </h1>
           <div className="w-full">
-            <label htmlFor="name" className="block mb-2 text-xl font-medium">
+            <label
+              htmlFor="name"
+              className="block mb-2 text-[16px] md:text-xl font-medium"
+            >
               Product Name{" "}
             </label>
             <input
@@ -83,14 +86,17 @@ const Upload = () => {
               className="rounded-3xl w-full bg-gray-500 px-4 py-2 placeholder-gray-400 text-white focus:outline-none focus:ring-0 focus:border-gray-900"
             />
             {state?.errors?.name ? (
-              <p className="text-red-500 mt-2">{state.errors.name}</p>
+              <p className="text-red-500 mt-2 text-[13px] md:text-[16px]">{state.errors.name}</p>
             ) : (
               <p className="opacity-0 pointer-events-none mt-2">s</p>
             )}
             {}
           </div>
           <div className="w-full">
-            <label htmlFor="price" className="block mb-2 text-xl font-medium">
+            <label
+              htmlFor="price"
+              className="block mb-2 text-[16px] md:text-xl font-medium"
+            >
               Price{" "}
             </label>
             <input
@@ -102,7 +108,7 @@ const Upload = () => {
               className="rounded-3xl w-full bg-gray-500 px-4 py-2 placeholder-gray-400 text-white focus:outline-none focus:ring-0 focus:border-gray-900"
             />
             {state?.errors?.price ? (
-              <p className="text-red-500 mt-2">{state.errors.price}</p>
+              <p className="text-red-500 mt-2 text-[13px] md:text-[16px]">{state.errors.price}</p>
             ) : (
               <p className="opacity-0 pointer-events-none mt-2">s</p>
             )}
@@ -110,7 +116,7 @@ const Upload = () => {
           <div className="w-full">
             <label
               htmlFor="description"
-              className="block mb-2 text-xl font-medium"
+              className="block mb-2 text-[16px] md:text-xl font-medium"
             >
               Description{" "}
             </label>
@@ -119,17 +125,17 @@ const Upload = () => {
               name="description"
               placeholder="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti, ipsam illo ipsa magnam ea eius doloremque quasi maxime cumque voluptatibus saepe vitae distinctio id aliquam vel iste. Dolore, distinctio minima?"
               autoComplete="off"
-              className="rounded-3xl w-full bg-gray-500 px-4 py-2 placeholder-gray-400 text-white focus:outline-none focus:ring-0 focus:border-gray-900"
+              className="rounded-3xl w-full bg-gray-500 px-4 py-2 placeholder-gray-400 text-white focus:outline-none focus:ring-0 focus:border-gray-900 overflow-y-auto"
             />
             {state?.errors?.description ? (
-              <p className="text-red-500 mt-2">{state.errors.description}</p>
+              <p className="text-red-500 mt-2 text-[13px] md:text-[16px]">{state.errors.description}</p>
             ) : (
               <p className="opacity-0 pointer-events-none mt-2">s</p>
             )}
           </div>
           <div className="w-full">
             <label
-              className="block mb-2 text-xl font-medium"
+              className="block mb-2 text-[16px] md:text-xl font-medium"
               htmlFor="file_input"
             >
               Upload Image
@@ -142,13 +148,16 @@ const Upload = () => {
               name="imageUrl"
             />
             {state?.errors?.imageUrl ? (
-              <p className="text-red-500 mt-2">{state.errors.imageUrl}</p>
+              <p className="text-red-500 mt-2 text-[13px] md:text-[16px]">{state.errors.imageUrl}</p>
             ) : (
               <p className="opacity-0 pointer-events-none mt-2">s</p>
             )}
           </div>
           <div className="w-full">
-            <label htmlFor="contact" className="block mb-2 text-xl font-medium">
+            <label
+              htmlFor="contact"
+              className="block mb-2 text-[16px] md:text-xl font-medium"
+            >
               Contact mail{" "}
             </label>
             <input
@@ -160,7 +169,7 @@ const Upload = () => {
               className="rounded-3xl w-full bg-gray-500 px-4 py-2 placeholder-gray-400 text-white focus:outline-none focus:ring-0 focus:border-gray-900"
             />
             {state?.errors?.contactEmail ? (
-              <p className="text-red-500 mt-2">{state.errors.contactEmail}</p>
+              <p className="text-red-500 mt-2 text-[13px] md:text-[16px]">{state.errors.contactEmail}</p>
             ) : (
               <p className="opacity-0 pointer-events-none mt-2">s</p>
             )}

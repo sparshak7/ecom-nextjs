@@ -1,34 +1,71 @@
 import { createClient } from "@/supabase/client";
+import { getCanonicalUrl } from "@/utils";
+import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 
 type SingleProductType = {
   params: {
     id: string;
+  };
+};
+
+type Props = {
+  params: { id: string };
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const id = params.id;
+
+  const supabase = createClient();
+  const { data: product } = await supabase
+    .from("ecom-products")
+    .select()
+    .match({ id })
+    .single();
+
+  if (!product) {
+    return { title: "", description: "" };
   }
+
+  return {
+    title: product.name || "",
+    description: product.description || "",
+    openGraph: {
+      images: [
+        `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/storage/${product.imageUrl}`,
+      ],
+    },
+    alternates: {
+      canonical: `/product/${id}`,
+    },
+  };
 }
 
 export async function generateStaticParams() {
-  const supabase = createClient()
+  const supabase = createClient();
   const { data: products, error } = await supabase
     .from("ecom-products")
     .select();
 
-  if(!products) {
-    return []
+  if (!products) {
+    return [];
   }
 
   return products.map((product) => ({
     id: product.id,
-  }))
+  }));
 }
 
-const SingleProduct = async ({params}: SingleProductType) => {
+const SingleProduct = async ({ params }: SingleProductType) => {
   const supabase = createClient();
-   const { data: product } = await supabase
-     .from("ecom-products")
-     .select()
-     .match({ id: params.id })
-     .single()
+  const { data: product } = await supabase
+    .from("ecom-products")
+    .select()
+    .match({ id: params.id })
+    .single();
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-14">
@@ -53,5 +90,5 @@ const SingleProduct = async ({params}: SingleProductType) => {
       </div>
     </div>
   );
-}
-export default SingleProduct
+};
+export default SingleProduct;
