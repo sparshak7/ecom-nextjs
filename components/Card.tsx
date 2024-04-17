@@ -18,7 +18,7 @@ const Card = ({ product }: CardProps) => {
         <div>
           <div className="relative h-96 bg-center">
             <Image
-              src={`${process.env.SUPABASE_URL}/storage/v1/object/public/storage/${product.imageUrl}`}
+              src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/storage/${product.imageUrl}`}
               alt={product.name}
               style={{ objectFit: "cover" }}
               fill={true}

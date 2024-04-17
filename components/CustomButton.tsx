@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 type CustomButtonProps = {
   text: string;
-  icon?: ReactNode
+  icon?: ReactNode;
 }
 
 const CustomButton = ({text, icon}: CustomButtonProps) => {
